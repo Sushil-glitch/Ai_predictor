@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Prediction | StudentAI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="/" class="logo">🚀 StudentAI</a>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/predict">Performance</a></li>
+            <li><a href="/dropout">Dropout Risk</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/about">About</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero" style="height: 250px;">
+        <h1>Student Performance Prediction</h1>
+        <p>Predict final scores based on study habits and student background.</p>
+    </header>
+
+    <main class="container">
+        <div class="card" style="max-width: 600px; margin: 0 auto;">
+            <h2>Input Student Details</h2>
+            <form id="predictForm">
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <select id="gender" required>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="studyHours">Study Hours (per week)</label>
+                    <input type="number" id="studyHours" placeholder="e.g. 5" min="0" max="10" required>
+                </div>
+                <div class="form-group">
+                    <label for="parentEdu">Parental Education</label>
+                    <select id="parentEdu" required>
+                        <option value="high_school">High School</option>
+                        <option value="bachelors">Bachelor's Degree</option>
+                        <option value="masters">Master's Degree</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="lunch">Lunch Type</label>
+                    <select id="lunch" required>
+                        <option value="standard">Standard</option>
+                        <option value="free/reduced">Free/Reduced</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="testPrep">Test Preparation Course</label>
+                    <select id="testPrep" required>
+                        <option value="none">None</option>
+                        <option value="completed">Completed</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn">Predict Performance</button>
+            </form>
+
+            <!-- Loading Spinner -->
+            <div id="spinner" class="spinner"></div>
+
+            <!-- Result Display -->
+            <div id="resultBox" class="result-box">
+                <!-- Result injected by JS -->
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Student Success Predictor Project.</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

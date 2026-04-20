@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropout Prediction | StudentAI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="/" class="logo">🚀 StudentAI</a>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/predict">Performance</a></li>
+            <li><a href="/dropout">Dropout Risk</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/about">About</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero" style="height: 250px; background: linear-gradient(135deg, #d63031 0%, #fab1a0 100%);">
+        <h1>Dropout Risk Analysis</h1>
+        <p>Pre-emptive detection of students who may leave the course.</p>
+    </header>
+
+    <main class="container">
+        <div class="card" style="max-width: 600px; margin: 0 auto;">
+            <h2>Input Risk Indicators</h2>
+            <form id="dropoutForm">
+                <div class="form-group">
+                    <label for="attendance">Attendance Percentage (%)</label>
+                    <input type="number" id="attendance" placeholder="e.g. 75" min="0" max="100" required>
+                </div>
+                <div class="form-group">
+                    <label for="studyHours">Study Hours</label>
+                    <input type="number" id="studyHours" placeholder="e.g. 5" min="0" max="24" required>
+                </div>
+                <div class="form-group">
+                    <label for="marks">Previous Marks (%)</label>
+                    <input type="number" id="marks" placeholder="e.g. 60" min="0" max="100" required>
+                </div>
+                
+                <button type="submit" class="btn" style="background: var(--danger-color);">Analyze Risk</button>
+            </form>
+
+            <div id="dropoutSpinner" class="spinner"></div>
+
+            <div id="dropoutResult" class="result-box">
+                <!-- Result injected by JS -->
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Student Success Predictor Project.</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
