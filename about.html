@@ -9,7 +9,26 @@
 <body>
 
     <nav class="navbar">
-        <a href="index.html" class="logo">🚀 StudentAI</a>
+        <a href="index.html" class="logo">🚀 <span>StudentAI</span></a>
+        
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="predict.html">Performance</a></li>
+            <li><a href="dropout.html">Dropout Risk</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+        </ul>
+
+        <div class="menu-toggle" id="mobile-menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="overlay" id="overlay"></div>
+    <div class="mobile-menu" id="mobile-menu">
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="predict.html">Performance</a></li>
@@ -17,11 +36,16 @@
             <li><a href="dashboard.html">Dashboard</a></li>
             <li><a href="about.html">About</a></li>
         </ul>
-    </nav>
+    </div>
 
-    <header class="hero" style="height: 250px;">
-        <h1>About the Project</h1>
-        <p>The Student Success Predictor is an end-to-end data science application demo.</p>
+    <header class="hero">
+        <div class="hero-content">
+            <h1>About the <span>Project</span></h1>
+            <p>The Student Success Predictor is an end-to-end data science application demo designed to empower educators and students alike.</p>
+        </div>
+        <div class="hero-image">
+            <img src="static/images/about.png" alt="Our Vision">
+        </div>
     </header>
 
     <main class="container">
@@ -32,11 +56,11 @@
             <h2 style="margin-top: 2rem;">What We Offer</h2>
             <div class="grid-container" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 1rem;">
                 <div>
-                    <h3 style="color: var(--primary-color);">Performance Prediction</h3>
+                    <h3 style="color: var(--primary);">Performance Prediction</h3>
                     <p>Sophisticated data modeling allows students to understand how their current study patterns and backgrounds influence their projected outcomes, enabling early course corrections.</p>
                 </div>
                 <div>
-                    <h3 style="color: var(--danger-color);">Retention Support</h3>
+                    <h3 style="color: var(--danger);">Retention Support</h3>
                     <p>By identifying behavioral and academic risk factors early, our system helps prevent dropouts before they happen, ensuring every student has a pathway to graduation.</p>
                 </div>
             </div>

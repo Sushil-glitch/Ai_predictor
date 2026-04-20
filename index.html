@@ -10,7 +10,26 @@
 <body>
 
     <nav class="navbar">
-        <a href="index.html" class="logo">🚀 StudentAI</a>
+        <a href="index.html" class="logo">🚀 <span>StudentAI</span></a>
+        
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="predict.html">Performance</a></li>
+            <li><a href="dropout.html">Dropout Risk</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+
+        <div class="menu-toggle" id="mobile-menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="overlay" id="overlay"></div>
+    <div class="mobile-menu" id="mobile-menu">
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="predict.html">Performance</a></li>
@@ -18,30 +37,45 @@
             <li><a href="dashboard.html">Dashboard</a></li>
             <li><a href="about.html">About</a></li>
         </ul>
-    </nav>
+    </div>
 
     <header class="hero">
-        <h1>Predict Student Success</h1>
-        <p>Empowering educators and students with AI-driven insights to improve academic outcomes and prevent dropouts.</p>
-        <div style="margin-top: 2rem;">
-            <a href="predict.html" class="btn" style="width: auto; padding: 1rem 2rem;">Get Started</a>
+        <div class="hero-content">
+            <h1>Predict Student <span>Success</span></h1>
+            <p>Empowering educators and students with AI-driven insights to improve academic outcomes and prevent dropouts early.</p>
+            <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                <a href="predict.html" class="btn" style="width: auto;">Get Started</a>
+                <a href="about.html" class="btn btn-secondary" style="width: auto;">Learn More</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="static/images/hero.png" alt="Student AI">
         </div>
     </header>
 
     <main class="container">
         <div class="grid-container">
-            <div class="card">
-                <h2>📈 Performance Prediction</h2>
+            <div class="card glass-card">
+                <div class="card-icon">
+                    <img src="static/images/performance.png" alt="Performance">
+                </div>
+                <h2>Performance Prediction</h2>
                 <p>Analyze how study habits and backgrounds affect a student's final score using our advanced simulation model.</p>
-                <a href="predict.html" class="btn">Try Performance Predictor</a>
+                <a href="predict.html" class="btn">Try Predictor</a>
             </div>
-            <div class="card">
-                <h2>⚠️ Dropout Alert</h2>
+            <div class="card glass-card">
+                <div class="card-icon">
+                    <img src="static/images/dropout.png" alt="Dropout">
+                </div>
+                <h2>Dropout Alert</h2>
                 <p>Identify "at-risk" students early by monitoring attendance and current academic performance trends.</p>
-                <a href="dropout.html" class="btn">Check Dropout Risk</a>
+                <a href="dropout.html" class="btn" style="background: var(--danger);">Check Risk</a>
             </div>
-            <div class="card">
-                <h2>📊 Live Dashboard</h2>
+            <div class="card glass-card">
+                <div class="card-icon">
+                    <img src="static/images/dashboard.png" alt="Dashboard">
+                </div>
+                <h2>Live Dashboard</h2>
                 <p>Visualize aggregate data and trends to understand the overall performance within the system.</p>
                 <a href="dashboard.html" class="btn">View Dashboard</a>
             </div>

@@ -10,7 +10,26 @@
 <body>
 
     <nav class="navbar">
-        <a href="index.html" class="logo">🚀 StudentAI</a>
+        <a href="index.html" class="logo">🚀 <span>StudentAI</span></a>
+        
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="predict.html">Performance</a></li>
+            <li><a href="dropout.html">Dropout Risk</a></li>
+            <li><a href="dashboard.html" class="active">Dashboard</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+
+        <div class="menu-toggle" id="mobile-menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="overlay" id="overlay"></div>
+    <div class="mobile-menu" id="mobile-menu">
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="predict.html">Performance</a></li>
@@ -18,11 +37,16 @@
             <li><a href="dashboard.html">Dashboard</a></li>
             <li><a href="about.html">About</a></li>
         </ul>
-    </nav>
+    </div>
 
-    <header class="hero" style="height: 250px; background: linear-gradient(135deg, #00b894 0%, #a29bfe 100%);">
-        <h1>Analytics Dashboard</h1>
-        <p>Comprehensive overview of student performance metrics.</p>
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Analytics <span>Dashboard</span></h1>
+            <p>Comprehensive overview of student performance metrics and institutional trends.</p>
+        </div>
+        <div class="hero-image">
+            <img src="static/images/dashboard_hero.png" alt="Analytics View">
+        </div>
     </header>
 
     <main class="container">

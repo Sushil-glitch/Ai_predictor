@@ -9,7 +9,26 @@
 <body>
 
     <nav class="navbar">
-        <a href="index.html" class="logo">🚀 StudentAI</a>
+        <a href="index.html" class="logo">🚀 <span>StudentAI</span></a>
+        
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="predict.html" class="active">Performance</a></li>
+            <li><a href="dropout.html">Dropout Risk</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+
+        <div class="menu-toggle" id="mobile-menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="overlay" id="overlay"></div>
+    <div class="mobile-menu" id="mobile-menu">
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="predict.html">Performance</a></li>
@@ -17,11 +36,16 @@
             <li><a href="dashboard.html">Dashboard</a></li>
             <li><a href="about.html">About</a></li>
         </ul>
-    </nav>
+    </div>
 
-    <header class="hero" style="height: 250px;">
-        <h1>Student Performance Prediction</h1>
-        <p>Predict final scores based on study habits and student background.</p>
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Student <span>Performance</span></h1>
+            <p>Advanced simulation to predict academic outcomes based on background and habits.</p>
+        </div>
+        <div class="hero-image">
+            <img src="static/images/predict.png" alt="Performance AI">
+        </div>
     </header>
 
     <main class="container">

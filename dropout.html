@@ -9,7 +9,26 @@
 <body>
 
     <nav class="navbar">
-        <a href="index.html" class="logo">🚀 StudentAI</a>
+        <a href="index.html" class="logo">🚀 <span>StudentAI</span></a>
+        
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="predict.html">Performance</a></li>
+            <li><a href="dropout.html" class="active">Dropout Risk</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+
+        <div class="menu-toggle" id="mobile-menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="overlay" id="overlay"></div>
+    <div class="mobile-menu" id="mobile-menu">
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="predict.html">Performance</a></li>
@@ -17,11 +36,16 @@
             <li><a href="dashboard.html">Dashboard</a></li>
             <li><a href="about.html">About</a></li>
         </ul>
-    </nav>
+    </div>
 
-    <header class="hero" style="height: 250px; background: linear-gradient(135deg, #d63031 0%, #fab1a0 100%);">
-        <h1>Dropout Risk Analysis</h1>
-        <p>Pre-emptive detection of students who may leave the course.</p>
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Dropout <span>Risk Alert</span></h1>
+            <p>Pre-emptive detection of students who may need additional support to stay on track.</p>
+        </div>
+        <div class="hero-image">
+            <img src="static/images/risk.png" alt="Dropout Alert">
+        </div>
     </header>
 
     <main class="container">
@@ -41,7 +65,7 @@
                     <input type="number" id="marks" placeholder="e.g. 60" min="0" max="100" required>
                 </div>
                 
-                <button type="submit" class="btn" style="background: var(--danger-color);">Analyze Risk</button>
+                <button type="submit" class="btn" style="background: var(--danger);">Analyze Risk</button>
             </form>
 
             <div id="dropoutSpinner" class="spinner"></div>
