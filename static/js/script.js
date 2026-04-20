@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             
             const study_hours = parseFloat(document.getElementById('studyHours').value);
+            const school_type = document.getElementById('schoolType').value;
+            const board = document.getElementById('board').value;
             const resultBox = document.getElementById('resultBox');
             const spinner = document.getElementById('spinner');
 
