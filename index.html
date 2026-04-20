@@ -4,56 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Success Predictor | AI for Education</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Use relative paths for GitHub Pages -->
+    <link rel="stylesheet" href="static/css/style.css">
 </head>
 <body>
 
-    <!-- Navbar -->
     <nav class="navbar">
-        <a href="/" class="logo">🚀 StudentAI</a>
+        <a href="index.html" class="logo">🚀 StudentAI</a>
         <ul class="nav-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/predict">Performance</a></li>
-            <li><a href="/dropout">Dropout Risk</a></li>
-            <li><a href="/dashboard">Dashboard</a></li>
-            <li><a href="/about">About</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="predict.html">Performance</a></li>
+            <li><a href="dropout.html">Dropout Risk</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="about.html">About</a></li>
         </ul>
     </nav>
 
-    <!-- Hero Section -->
     <header class="hero">
         <h1>Predict Student Success</h1>
         <p>Empowering educators and students with AI-driven insights to improve academic outcomes and prevent dropouts.</p>
         <div style="margin-top: 2rem;">
-            <a href="/predict" class="btn" style="width: auto; padding: 1rem 2rem;">Get Started</a>
+            <a href="predict.html" class="btn" style="width: auto; padding: 1rem 2rem;">Get Started</a>
         </div>
     </header>
 
-    <!-- Content -->
     <main class="container">
         <div class="grid-container">
             <div class="card">
                 <h2>📈 Performance Prediction</h2>
                 <p>Analyze how study habits and backgrounds affect a student's final score using our advanced simulation model.</p>
-                <a href="/predict" class="btn">Try Performance Predictor</a>
+                <a href="predict.html" class="btn">Try Performance Predictor</a>
             </div>
             <div class="card">
                 <h2>⚠️ Dropout Alert</h2>
                 <p>Identify "at-risk" students early by monitoring attendance and current academic performance trends.</p>
-                <a href="/dropout" class="btn">Check Dropout Risk</a>
+                <a href="dropout.html" class="btn">Check Dropout Risk</a>
             </div>
             <div class="card">
                 <h2>📊 Live Dashboard</h2>
                 <p>Visualize aggregate data and trends to understand the overall performance within the system.</p>
-                <a href="/dashboard" class="btn">View Dashboard</a>
+                <a href="dashboard.html" class="btn">View Dashboard</a>
             </div>
         </div>
     </main>
 
     <footer>
-        <p>&copy; 2026 Student Success Predictor Project. Built with Flask & Chart.js</p>
+        <p>&copy; 2026 Student Success Predictor Project. Built with HTML, CSS & JS (Static Version)</p>
     </footer>
 
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="static/js/script.js"></script>
 </body>
 </html>

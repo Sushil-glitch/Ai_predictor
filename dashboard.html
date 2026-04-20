@@ -4,20 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Analytics Dashboard | StudentAI</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <!-- Chart.js CDN -->
+    <link rel="stylesheet" href="static/css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
     <nav class="navbar">
-        <a href="/" class="logo">🚀 StudentAI</a>
+        <a href="index.html" class="logo">🚀 StudentAI</a>
         <ul class="nav-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/predict">Performance</a></li>
-            <li><a href="/dropout">Dropout Risk</a></li>
-            <li><a href="/dashboard">Dashboard</a></li>
-            <li><a href="/about">About</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="predict.html">Performance</a></li>
+            <li><a href="dropout.html">Dropout Risk</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="about.html">About</a></li>
         </ul>
     </nav>
 
@@ -28,31 +27,24 @@
 
     <main class="container">
         <div class="grid-container">
-            <!-- Bar Chart Card -->
             <div class="card">
                 <h2>Average Scores by Subject</h2>
                 <div class="chart-container">
                     <canvas id="scoresBarChart"></canvas>
                 </div>
             </div>
-
-            <!-- Pie Chart Card -->
             <div class="card">
                 <h2>Overall Pass/Fail Rate</h2>
                 <div class="chart-container">
                     <canvas id="passFailPieChart"></canvas>
                 </div>
             </div>
-
-            <!-- Line Chart Card -->
-            <div class="card" style="grid-column: span 1;">
+            <div class="card">
                 <h2>Study Hours vs Performance Trend</h2>
                 <div class="chart-container">
                     <canvas id="studyTrendLineChart"></canvas>
                 </div>
             </div>
-
-            <!-- Summary Card -->
             <div class="card">
                 <h2>Quick Stats</h2>
                 <div style="margin-top: 1rem;">
@@ -60,9 +52,6 @@
                     <p><strong>Average Attendance:</strong> 84%</p>
                     <p><strong>Success Rate:</strong> 78.5%</p>
                     <p><strong>High Risk Students:</strong> 12%</p>
-                </div>
-                <div style="margin-top: 2rem; padding: 1rem; background: #f1f2f6; border-radius: 10px;">
-                    <p style="font-size: 0.85rem; color: var(--text-muted);">Data updated: Today, 11:30 AM</p>
                 </div>
             </div>
         </div>
@@ -72,7 +61,6 @@
         <p>&copy; 2026 Student Success Predictor Project.</p>
     </footer>
 
-    <!-- Load Chart Logic -->
-    <script src="{{ url_for('static', filename='js/charts.js') }}"></script>
+    <script src="static/js/charts.js"></script>
 </body>
 </html>

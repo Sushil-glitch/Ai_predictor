@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Performance Prediction | StudentAI</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="static/css/style.css">
 </head>
 <body>
 
     <nav class="navbar">
-        <a href="/" class="logo">🚀 StudentAI</a>
+        <a href="index.html" class="logo">🚀 StudentAI</a>
         <ul class="nav-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/predict">Performance</a></li>
-            <li><a href="/dropout">Dropout Risk</a></li>
-            <li><a href="/dashboard">Dashboard</a></li>
-            <li><a href="/about">About</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="predict.html">Performance</a></li>
+            <li><a href="dropout.html">Dropout Risk</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="about.html">About</a></li>
         </ul>
     </nav>
 
@@ -65,13 +65,9 @@
                 <button type="submit" class="btn">Predict Performance</button>
             </form>
 
-            <!-- Loading Spinner -->
             <div id="spinner" class="spinner"></div>
 
-            <!-- Result Display -->
-            <div id="resultBox" class="result-box">
-                <!-- Result injected by JS -->
-            </div>
+            <div id="resultBox" class="result-box"></div>
         </div>
     </main>
 
@@ -79,6 +75,6 @@
         <p>&copy; 2026 Student Success Predictor Project.</p>
     </footer>
 
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="static/js/script.js"></script>
 </body>
 </html>
