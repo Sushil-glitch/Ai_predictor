@@ -6,12 +6,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // Handling Student Performance Prediction Form
     const predictForm = document.getElementById('predictForm');
     if (predictForm) {
-        predictForm.addEventListener('submit', (e) => {
+        predictForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             
-            const study_hours = parseFloat(document.getElementById('studyHours').value);
-            const school_type = document.getElementById('schoolType').value;
+            const gender = document.getElementById('gender').value;
+            const studyHours = parseFloat(document.getElementById('studyHours').value);
+            const parentEdu = document.getElementById('parentEdu').value;
+            const schoolType = document.getElementById('schoolType').value;
             const board = document.getElementById('board').value;
+            const testPrep = document.getElementById('testPrep').value;
+            
             const resultBox = document.getElementById('resultBox');
             const spinner = document.getElementById('spinner');
 
@@ -19,16 +23,33 @@ document.addEventListener('DOMContentLoaded', () => {
             spinner.style.display = 'block';
             resultBox.style.display = 'none';
 
-            // Simulate 'Processing' Delay
-            setTimeout(() => {
-                spinner.style.display = 'none';
-
-                // Simulation Logic (Formerly on Backend)
-                const randomNoise = Math.random() * 10;
-                let score = (study_hours * 10) + randomNoise;
-                score = Math.min(Math.round(score * 100) / 100, 100);
+            try {
+                const response = await fetch('/predict_score', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        gender: gender,
+                        studyHours: studyHours,
+                        parentEdu: parentEdu,
+                        schoolType: schoolType,
+                        board: board,
+                        testPrep: testPrep
+                    })
+                });
                 
-                const status = score >= 40 ? "PASS" : "FAIL";
+                const data = await response.json();
+                
+                spinner.style.display = 'none';
+                
+                if (data.error) {
+                    alert("Error in prediction: " + data.error);
+                    return;
+                }
+
+                const score = data.score;
+                const status = data.status;
 
                 // Display Result
                 resultBox.style.display = 'block';
@@ -38,9 +59,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     <span class="badge ${status === 'PASS' ? 'badge-pass' : 'badge-fail'}">
                         ${status}
                     </span>
-                    <p style="margin-top: 15px; color: #636e72;">Prediction successful (Static Engine)</p>
+                    <p style="margin-top: 15px; color: #636e72;">${data.message}</p>
                 `;
-            }, 1000);
+            } catch (err) {
+                spinner.style.display = 'none';
+                alert("Failed to connect to the prediction server.");
+            }
         });
     }
 

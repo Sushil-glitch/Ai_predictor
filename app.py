@@ -1,8 +1,21 @@
 from flask import Flask, render_template, request, jsonify
 import random
 import time
+import joblib
+import pandas as pd
+import os
 
 app = Flask(__name__)
+
+# Load ML model if exists
+model_path = 'model/performance_model.pkl'
+columns_path = 'model/model_columns.pkl'
+if os.path.exists(model_path) and os.path.exists(columns_path):
+    model = joblib.load(model_path)
+    model_columns = joblib.load(columns_path)
+else:
+    model = None
+    model_columns = None
 
 # --- ROUTES ---
 
@@ -36,26 +49,59 @@ def about():
 @app.route('/predict_score', methods=['POST'])
 def predict_score():
     """
-    API for Performance Prediction.
-    Logic: (study_hours * 10) + random(0-10)
+    API for Performance Prediction using ML model.
     """
     data = request.json
-    study_hours = float(data.get('study_hours', 0))
     
     # Simulate a slight delay for the 'AI Processing' feel
     time.sleep(1)
     
-    # Simple simulation logic
-    score = (study_hours * 10) + random.uniform(0, 10)
-    score = min(round(score, 2), 100) # Cap at 100
-    
-    status = "PASS" if score >= 40 else "FAIL"
-    
-    return jsonify({
-        'score': score,
-        'status': status,
-        'message': f"Prediction successful for student."
-    })
+    if model is not None and model_columns is not None:
+        try:
+            # Extract features from request
+            input_dict = {
+                'gender': data.get('gender', 'male'),
+                'studyHours': float(data.get('studyHours', 0)),
+                'parentEdu': data.get('parentEdu', 'high_school'),
+                'schoolType': data.get('schoolType', 'government'),
+                'board': data.get('board', 'state'),
+                'testPrep': data.get('testPrep', 'none')
+            }
+            
+            # Convert to DataFrame
+            input_df = pd.DataFrame([input_dict])
+            
+            # One-hot encode
+            input_encoded = pd.get_dummies(input_df)
+            
+            # Reindex to match model columns (fill missing with 0)
+            input_encoded = input_encoded.reindex(columns=model_columns, fill_value=0)
+            
+            # Predict
+            score = model.predict(input_encoded)[0]
+            score = min(max(round(score, 2), 0), 100) # Cap at 0-100
+            
+            status = "PASS" if score >= 40 else "FAIL"
+            
+            return jsonify({
+                'score': score,
+                'status': status,
+                'message': f"ML Prediction successful."
+            })
+        except Exception as e:
+            return jsonify({'error': str(e)}), 500
+    else:
+        # Fallback simulated logic if model not found
+        study_hours = float(data.get('studyHours', 0))
+        score = (study_hours * 10) + random.uniform(0, 10)
+        score = min(round(score, 2), 100)
+        status = "PASS" if score >= 40 else "FAIL"
+        
+        return jsonify({
+            'score': score,
+            'status': status,
+            'message': f"Simulated Prediction successful."
+        })
 
 @app.route('/predict_dropout', methods=['POST'])
 def predict_dropout():
